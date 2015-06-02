@@ -20,17 +20,17 @@ var Game = {
 		this.enemyBulletIndex = 0;
 		this.enemyIndex = 0;
 		this.particleIndex = 0;
-		this.maxParticles = 12;
-		this.maxEnemies = 6;
-		this.enemiesAlive = 0;
+		this.maxParticles = 120;
+		this.maxEnemies = 20;
+		this.enemiesAlive = 5;
 		this.currentFrame = 0;
-		this.maxLives = 3;
+		this.maxLives = 5;
 		this.life = 0;
 		this.binding();
 		this.player = new Player();
 		this.score = 0;
 		this.paused = false;
-		this.shooting = false;
+		this.shooting = true;
 		this.oneShot = true;
 		this.isGameOver = false;
      this.requestAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame;
@@ -205,10 +205,10 @@ var Game = {
 var Player = function(){
 	this.width = 60;
 	this.height = 20;
-	this.x = Game.c.width/2 - this.width/2;
+	this.x = Game.c.width/6 - this.width/6;
 	this.y = Game.c.height - this.height;
-	this.movingLeft = false;
-	this.movingRight = false;
+	this.movingLeft = true;
+	this.movingRight = true;
 	this.speed = 8;
 	this.invincible = false;
 	this.color = "#39FF14";
@@ -263,14 +263,14 @@ Player.prototype.shoot = function(){
 
 
 var Bullet = function(x){  
-	this.width = 8;
-	this.height = 20;
+	this.width = 20;
+	this.height = 100;
 	this.x = x;
 	this.y = Game.c.height - 10;
 	this.vy = 8;
 	this.index = Game.bulletIndex;
 	this.active = true;
-	this.color = "#39FF14";
+	this.color = "#593001";
 	
 };
 
